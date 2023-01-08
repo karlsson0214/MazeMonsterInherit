@@ -9,7 +9,7 @@ public class Player : Actor
     {
         // call Start() in super class Actor
         base.Start();
-        tag = "Gargoyle"; 
+        tag = "Player"; 
     }
 
     // Update is called once per frame

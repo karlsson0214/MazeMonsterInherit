@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Phonix : Monster
 {
-    private GameObject gargoyle;
-    private Rigidbody2D rbGargoyle;
+    private GameObject player;
+    private Rigidbody2D rbPlayer;
     private List<Vector2> directionVector2 = new List<Vector2>();
 
     // Start is called before the first frame update
@@ -27,24 +27,23 @@ public class Phonix : Monster
     protected override void FixedUpdate()
     {
 
-        // move towards gargoyle
-        if (gargoyle == null)
+        // move towards player
+        if (player == null)
         {
-            gargoyle = GameObject.FindWithTag("Gargoyle");
-            rbGargoyle = gargoyle.GetComponent<Rigidbody2D>();
+            player = GameObject.FindWithTag("Player");
+            rbPlayer = player.GetComponent<Rigidbody2D>();
         }
-        if (gargoyle != null)
+        if (player != null)
         {
-            //MoveTowardsGargoyle();
-            MoveRandomGargoyle();
+            MoveRandomPlayer();
         }
 
         
     }
-    private void MoveRandomGargoyle()
+    private void MoveRandomPlayer()
     {
-        float deltaX = rbGargoyle.position.x - rb.position.x;
-        float deltaY = rbGargoyle.position.y - rb.position.y;
+        float deltaX = rbPlayer.position.x - rb.position.x;
+        float deltaY = rbPlayer.position.y - rb.position.y;
         int twoSides = Random.Range(0, 2);
         if (twoSides == 0)
         {
@@ -58,8 +57,8 @@ public class Phonix : Monster
     }
     private void MoveTowardsGargoyle()
     {
-        float deltaX = rbGargoyle.position.x - rb.position.x;
-        float deltaY = rbGargoyle.position.y - rb.position.y;
+        float deltaX = rbPlayer.position.x - rb.position.x;
+        float deltaY = rbPlayer.position.y - rb.position.y;
         // Move in x- och y-direction. Take longest differance first.
         if (System.Math.Abs(deltaX) < System.Math.Abs(deltaY))
         {
