@@ -14,9 +14,6 @@ public class Phonix : Monster
         // call Start() in super class Monster
         base.Start();
         speed = 3;
-        rb = GetComponent<Rigidbody2D>();
-        rb.freezeRotation = true;
-        rb.gravityScale = 0;
         directionVector2.Add(Vector2.right);
         directionVector2.Add(Vector2.up);
         directionVector2.Add(Vector2.left);
